@@ -1,0 +1,15 @@
+/docs/ Klasörü
+Ne İşe Yarar?
+Bu klasör, projenizin teknik olmayan dökümantasyon ve planlama merkezidir. Kod içermez, ancak projenin sağlıklı ilerlemesi için hayati öneme sahiptir. Amacı, ekip içindeki iletişimi güçlendirmek ve projenin "nasıl çalışması gerektiğini" yazılı hale getirmektir. 6 ay sonra projeye döndüğünüzde veya ekibe yeni biri katıldığında hayat kurtarır.
+
+İçinde Neler Olmalı?
+
+API Sözleşmesi (API Contract): Frontend (sen) ve backend (arkadaşın) arasındaki anlaşmadır.
+
+Örnek: api-contract.md adında bir Markdown dosyası oluşturup içine şunu yazabilirsiniz: "Randevu oluşturmak için /appointments adresine POST isteği atılacak ve { barberId: 1, appointmentDate: '2025-08-25T14:00:00Z' } formatında veri gönderilecek."
+
+Postman Collection: Arkadaşın API'yi test etmek için kullandığı Postman koleksiyonunu buraya export edebilir. Böylece sen de aynı koleksiyonu kullanarak API'yi kolayca test edebilirsin.
+
+Akış Diyagramları: Kullanıcı akışlarını çizdiğin görseller (örn: "Kullanıcı giriş yaptıktan sonra ana sayfaya gider, berber seçer, detay sayfasına gider..." gibi akışların şemaları).
+
+Veritabanı Şeması: Veritabanı tablolarının ve aralarındaki ilişkilerin görsel bir diyagramı.
