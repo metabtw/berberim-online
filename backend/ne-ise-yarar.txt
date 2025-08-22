@@ -1,0 +1,18 @@
+backend/ Klasörü
+Ne İşe Yarar?
+Projenin beyni ve motorudur. Kullanıcıların görmediği ama uygulamanın çalışmasını sağlayan tüm mantık buradadır. Veritabanına bağlanır, kullanıcı bilgilerini kontrol eder, randevuları kaydeder ve mobil uygulamaya "istediği verileri" gönderir. Kısacası, C# ASP.NET Core Web API projesi burada yer alır.
+
+İçinde Neler Olmalı?
+Arkadaşın dotnet new webapi komutuyla projeyi oluşturduğunda şu gibi klasörler oluşacak:
+
+Controllers/: Mobil uygulamanın ulaşacağı API endpoint'lerinin (URL'lerin) tanımlandığı yer. (örn: BarbersController.cs içinde /barbers ve /barbers/{id} adresleri olur).
+
+Models/ veya Entities/: Veritabanı tablolarının C# dilindeki karşılıkları (örn: User.cs, Appointment.cs).
+
+Services/: İş mantığının yazıldığı katman (örn: Bir randevu oluşturulurken hangi kontrollerin yapılacağı).
+
+Data/: Veritabanı bağlantı ve sorgu kodlarının bulunduğu yer (DbContext vb.).
+
+appsettings.json: Projenin ayar dosyası (veritabanı bağlantı cümlesi, JWT anahtarı gibi).
+
+.csproj dosyası: C# projesinin kimliği ve kullandığı kütüphanelerin listesi.

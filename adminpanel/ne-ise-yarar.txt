@@ -1,0 +1,45 @@
+Ne İşe Yarar?
+Burası, işletme sahiplerinin (berberler, kuaförler) veya süper yöneticilerin sistemi yönetmek için kullandığı bir web uygulamasıdır. Müşteriye yönelik mobil uygulamadan (/mobile/) tamamen farklı bir kullanıcı kitlesi ve işlevselliğe sahiptir. Genellikle bir React, Vue.js veya Angular projesi olarak geliştirilir.
+
+Bu panel sayesinde işletmeciler:
+
+Randevu onaylama, iptal etme veya değiştirme.
+
+Çalışma saatlerini ve mola saatlerini düzenleme.
+
+Müşteri listesini ve geçmiş randevuları görüntüleme.
+
+Personel yönetimi (berber/kuaför ekleme-çıkarma).
+
+Gelir ve istatistik raporlarını görüntüleme.
+...gibi yönetimsel işlemleri gerçekleştirebilir.
+
+İçinde Neler Olmalı?
+npx create-react-app admin-panel veya npm create vite@latest ./ -- --template react gibi bir komutla modern bir frontend projesi oluşturulduğunda aşağıdakine benzer bir yapı ortaya çıkar:
+
+src/: Ana kaynak kodları klasörü.
+
+pages/ veya views/: Yönetim panelinin ana sayfaları (örn: Dashboard.jsx, Appointments.jsx, Employees.jsx).
+
+components/: Sayfalarda kullanılan tekrar kullanılabilir bileşenler (örn: DataTable.jsx, StatsCard.jsx, Modal.jsx).
+
+services/ veya api/: Tıpkı mobil uygulamada olduğu gibi, backend'in C# API'si ile iletişim kuracak olan fonksiyonların bulunduğu katman. Buradaki fonksiyonlar genellikle farklı endpoint'lere (örn: GET /admin/appointments) ve daha yüksek yetkilere ihtiyaç duyar.
+
+contexts/ veya store/: Kullanıcı oturumu, tema gibi global state'leri yönetmek için context veya state kütüphanesi (Redux, Zustand) dosyaları.
+
+hooks/: Projeye özel custom React hook'ları.
+
+styles/: Global stil dosyaları (CSS, SCSS).
+
+public/: Static asset'ler (favicon, index.html vb.).
+
+package.json: Projenin kimliği ve kullandığı kütüphanelerin listesi.
+
+Monorepo ile İlişkisi:
+
+Ortak API Sözleşmesi: Admin paneli de aynı /backend/ API'sini kullanır. /docs/ klasöründeki "API Sözleşmesi", admin paneli için gerekli endpoint'leri ve yetki seviyelerini de mutlaka tanımlamalıdır.
+
+Ortak CI/CD (ci.yml): .github/workflows/ci.yml dosyasına, admin paneli için de test ve build süreçleri eklenmelidir. Örneğin, admin paneli kodları push edildiğinde npm run build komutunun hatasız çalıştığı kontrol edilebilir.
+
+Bağımsız Dağıtım: Mobil uygulama, backend ve admin paneli birbirinden bağımsız olarak geliştirilip dağıtılabilir. Bu, monorepo yapısının en büyük avantajlarından biridir.
+
