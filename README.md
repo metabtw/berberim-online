@@ -16,6 +16,7 @@ Kuaförüm Online, modern React Native ve Expo teknolojileri kullanılarak geli�
   - react-native-svg - SVG desteği
   - react-dom , react-native-web - Web desteği
 ### 2. Proje Klasör Yapısı
+
 mobile/
 ├── src/
 │   ├── components/     # Yeniden kullanılabilir UI bileşenleri
