@@ -1,6 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
+const isSmallScreen = height < 700;
+const isVerySmallScreen = height < 600;
 
 export const colors = {
   primary: '#667eea',
@@ -26,42 +28,42 @@ export const gradients = {
 };
 
 export const spacing = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  xs: isVerySmallScreen ? 2 : 4,
+  sm: isVerySmallScreen ? 4 : isSmallScreen ? 6 : 8,
+  md: isVerySmallScreen ? 8 : isSmallScreen ? 12 : 16,
+  lg: isVerySmallScreen ? 12 : isSmallScreen ? 18 : 24,
+  xl: isVerySmallScreen ? 16 : isSmallScreen ? 24 : 32,
+  xxl: isVerySmallScreen ? 24 : isSmallScreen ? 36 : 48,
 };
 
 export const typography = {
   h1: {
-    fontSize: 32,
+    fontSize: isVerySmallScreen ? 24 : isSmallScreen ? 28 : 32,
     fontWeight: 'bold',
     color: colors.black,
   },
   h2: {
-    fontSize: 24,
+    fontSize: isVerySmallScreen ? 18 : isSmallScreen ? 20 : 24,
     fontWeight: 'bold',
     color: colors.black,
   },
   h3: {
-    fontSize: 20,
+    fontSize: isVerySmallScreen ? 16 : isSmallScreen ? 18 : 20,
     fontWeight: '600',
     color: colors.black,
   },
   body: {
-    fontSize: 16,
+    fontSize: isVerySmallScreen ? 14 : 16,
     fontWeight: '400',
     color: colors.black,
   },
   caption: {
-    fontSize: 14,
+    fontSize: isVerySmallScreen ? 12 : 14,
     fontWeight: '400',
     color: colors.gray,
   },
   button: {
-    fontSize: 16,
+    fontSize: isVerySmallScreen ? 14 : 16,
     fontWeight: '600',
     color: colors.white,
   },
@@ -110,6 +112,7 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
+    paddingHorizontal: spacing.md,
   },
   safeArea: {
     flex: 1,
@@ -131,6 +134,7 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     alignItems: 'center',
     justifyContent: 'center',
+    minHeight: 48,
     ...shadows.small,
   },
   input: {
@@ -141,6 +145,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: colors.lightGray,
+    minHeight: 48,
     ...shadows.small,
   },
   inputFocused: {

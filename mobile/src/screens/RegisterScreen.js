@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   Alert,
+  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -23,6 +24,10 @@ const RegisterScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [focusedInput, setFocusedInput] = useState(null);
+  
+  const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+  const logoSize = Math.min(screenWidth * 0.25, screenHeight * 0.12);
+  const isSmallScreen = screenHeight < 700;
   
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(50)).current;
@@ -117,10 +122,10 @@ const RegisterScreen = ({ navigation }) => {
               ]}
             >
               <View style={styles.logoWrapper}>
-                <Logo width={80} height={80} />
+                <Logo width={logoSize} height={logoSize} />
               </View>
-              <Text style={styles.appTitle}>Kuaförüm Online</Text>
-              <Text style={styles.appSubtitle}>Yeni hesap oluşturun</Text>
+              <Text style={[styles.appTitle, { fontSize: isSmallScreen ? 22 : 26 }]}>Kuaförüm Online</Text>
+              <Text style={[styles.appSubtitle, { fontSize: isSmallScreen ? 13 : 15 }]}>Yeni hesap oluşturun</Text>
             </Animated.View>
             
             {/* Form Section */}
@@ -278,23 +283,24 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.xl,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    paddingBottom: spacing.lg,
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: spacing.lg,
-    marginBottom: spacing.lg,
+    marginTop: spacing.md,
+    marginBottom: spacing.md,
   },
   logoWrapper: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     ...shadows.large,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
   },
   logo: {
     width: 80,
@@ -319,7 +325,8 @@ const styles = StyleSheet.create({
   formCard: {
     backgroundColor: colors.white,
     borderRadius: 24,
-    padding: spacing.lg,
+    padding: spacing.md,
+    marginHorizontal: spacing.xs,
     ...shadows.large,
   },
   welcomeText: {
@@ -331,7 +338,7 @@ const styles = StyleSheet.create({
   subtitleText: {
     ...typography.caption,
     textAlign: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
     color: colors.gray,
   },
   nameRow: {
@@ -360,6 +367,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'transparent',
     color: colors.black,
+    minHeight: 48,
   },
   inputFocused: {
     borderColor: colors.primary,
