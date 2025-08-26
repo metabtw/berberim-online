@@ -10,6 +10,7 @@ import {
   Platform,
   ScrollView,
   Dimensions,
+  Alert,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -51,8 +52,24 @@ const LoginScreen = ({ navigation }) => {
   }, []);
   
   const handleLogin = () => {
-    // Login logic will be implemented when backend is ready
-    console.log('Login attempt:', { email, password });
+    // Trim whitespace and validate inputs
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedPassword = password.trim();
+    
+    // Check if fields are empty
+    if (!trimmedEmail || !trimmedPassword) {
+      Alert.alert('Hata', 'Lütfen e-posta ve şifre alanlarını doldurun.');
+      return;
+    }
+    
+    // Simulated login with test credentials
+    if (trimmedEmail === 'örnek@gmail.com' && trimmedPassword === 'admin') {
+      console.log('Login successful:', { email: trimmedEmail, password: trimmedPassword });
+      navigation.navigate('Home');
+    } else {
+      console.log('Login failed:', { email: trimmedEmail, password: trimmedPassword });
+      Alert.alert('Hata', 'E-posta veya şifre hatalı!\n\nTest için:\nE-posta: örnek@gmail.com\nŞifre: admin');
+    }
   };
   
   const navigateToRegister = () => {
@@ -115,7 +132,7 @@ const LoginScreen = ({ navigation }) => {
                       isEmailFocused && styles.inputFocused,
                     ]}
                     placeholder="ornek@email.com"
-                    placeholderTextColor={colors.gray}
+                    placeholderTextColor={colors.textPlaceholder}
                     value={email}
                     onChangeText={setEmail}
                     onFocus={() => setIsEmailFocused(true)}
@@ -135,7 +152,7 @@ const LoginScreen = ({ navigation }) => {
                       isPasswordFocused && styles.inputFocused,
                     ]}
                     placeholder="Şifrenizi girin"
-                    placeholderTextColor={colors.gray}
+                    placeholderTextColor={colors.textPlaceholder}
                     value={password}
                     onChangeText={setPassword}
                     onFocus={() => setIsPasswordFocused(true)}
@@ -198,8 +215,9 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: spacing.lg,
-    marginBottom: spacing.md,
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+    paddingVertical: spacing.sm,
   },
   logoWrapper: {
     width: 100,
@@ -230,33 +248,38 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    paddingBottom: spacing.lg,
   },
   formCard: {
     backgroundColor: colors.white,
     borderRadius: 24,
     padding: spacing.lg,
     marginHorizontal: spacing.xs,
+    marginVertical: spacing.sm,
+    maxWidth: 400,
+    alignSelf: 'center',
+    width: '100%',
     ...shadows.large,
   },
   welcomeText: {
     ...typography.h2,
     textAlign: 'center',
     marginBottom: spacing.xs,
-    color: colors.black,
+    color: colors.textPrimary,
   },
   subtitleText: {
     ...typography.caption,
     textAlign: 'center',
     marginBottom: spacing.xl,
-    color: colors.gray,
+    color: colors.textSecondary,
   },
   inputContainer: {
     marginBottom: spacing.md,
   },
   inputLabel: {
     ...typography.caption,
-    color: colors.darkGray,
+    color: colors.textPrimary,
     marginBottom: spacing.xs,
     fontWeight: '600',
   },
@@ -264,12 +287,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
     borderRadius: 12,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.md,
     fontSize: 16,
     borderWidth: 2,
     borderColor: 'transparent',
-    color: colors.black,
-    minHeight: 48,
+    color: colors.textPrimary,
+    minHeight: 52,
+    width: '100%',
   },
   inputFocused: {
     borderColor: colors.primary,
@@ -282,7 +306,7 @@ const styles = StyleSheet.create({
   },
   forgotPasswordText: {
     ...typography.caption,
-    color: colors.primary,
+    color: colors.secondary,
     fontWeight: '600',
   },
   loginButtonContainer: {
@@ -290,9 +314,11 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     borderRadius: 25,
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.lg,
     alignItems: 'center',
     justifyContent: 'center',
+    minHeight: 52,
+    width: '100%',
     ...shadows.medium,
   },
   loginButtonText: {
@@ -307,11 +333,11 @@ const styles = StyleSheet.create({
   },
   registerText: {
     ...typography.caption,
-    color: colors.gray,
+    color: colors.textSecondary,
   },
   registerLink: {
     ...typography.caption,
-    color: colors.primary,
+    color: colors.secondary,
     fontWeight: 'bold',
   },
 });

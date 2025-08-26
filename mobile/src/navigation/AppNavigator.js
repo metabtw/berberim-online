@@ -5,6 +5,8 @@ import { Animated } from 'react-native';
 
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+import HomeScreen from '../screens/HomeScreen';
+import BookingScreen from '../screens/BookingScreen';
 
 const Stack = createStackNavigator();
 
@@ -102,6 +104,21 @@ const AppNavigator = () => {
           component={RegisterScreen}
           options={{
             cardStyleInterpolator: forSlide,
+          }}
+        />
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen}
+          options={{
+            cardStyleInterpolator: forFade,
+          }}
+        />
+        <Stack.Screen 
+          name="Booking" 
+          component={BookingScreen}
+          options={{
+            cardStyleInterpolator: forSlide,
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

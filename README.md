@@ -36,7 +36,8 @@ mobile/
   - Normal ekranlar (height ≥ 700px)
 - Dinamik Spacing : Ekran boyutuna göre otomatik ayarlanan boşluklar
 - Responsive Typography : Metin boyutları ekran boyutuna göre ölçekleniyor
-### 4. Geliştirilen Ekranlar 🔐 Login Ekranı (LoginScreen.js)
+### 4. Geliştirilen Ekranlar
+🔐 Login Ekranı (LoginScreen.js)
 - Özellikler :
   - Gradient arka plan
   - Animasyonlu logo ve form elemanları
@@ -57,20 +58,39 @@ mobile/
   - E-posta: Geçerli format kontrolü
   - Şifre: Minimum 6 karakter
   - Şifre Tekrarı: İlk şifre ile eşleşme
-### 5. Navigasyon Sistemi 🧭 AppNavigator.js
+🧭 Navigasyon Sistemi (AppNavigator.js)
 - Stack Navigation kullanılarak sayfa geçişleri
 - Özel Animasyonlar :
   - forSlide : Yatay kaydırma geçişi
   - forFade : Solma geçişi
 - Gesture Handling : Geri kaydırma desteği
-### 6. Logo ve Branding 🎨 SVG Logo Tasarımı
+🎨 Logo ve Branding (SVG Logo)
 - Tasarım Elemanları :
   - Gradient daire arka plan (mor-pembe)
   - Stilize makas simgesi
   - "KUAFÖRÜM" yazısı
 - Responsive Logo : Ekran boyutuna göre otomatik ölçekleme
 - React Native SVG : Vektör tabanlı, ölçeklenebilir logo
-### 7. Performans ve Optimizasyon ⚡ Responsive Optimizasyonlar
+### 5. Ana Sayfa ve Listeleme (HomeScreen.js)
+- Arama çubuğu: canlı filtreleme, temizle butonu, odak efektleri
+- Filtreler: uzaklık ve fiyat aralığı, tüm başlık alanına tıklayınca açılır/kapanır
+- Listeleme şekli: iki sütun grid / tek sütun kart seçimi
+- Kartlar: popüler rozeti, favori ekleme/çıkarma, puan ve mesafe
+- İki sütunda hover/press overlay: “Randevu Al” ve “Detay” butonları
+- Tek sütunda büyük görsel üstte, altında bilgiler ve “Randevu Al + Detay” butonları
+- Sonuç sayacı ve boş durum (empty state)
+- Pull-to-refresh ve iyileştirilmiş kaydırma davranışı
+- Erişilebilirlik: role/label eklemeleri
+
+### 6. Randevu Alma (BookingScreen.js)
+- Kuaför bilgileri: ad, mesafe, puan, çalışma bilgileri
+- Tarih seçimi: 14 günlük kaydırılabilir seçenekler
+- Saat seçimi: 09:00–21:00 arası saat başı slotlar (45 dk + 15 dk buffer)
+- Hizmetler: birden fazla seçim (ör. Saç + Yıkama), toplam ücret hesaplama
+- Randevu oluştur: doğrulama (tarih+slot+en az bir hizmet), başarı modalı
+
+### 7. Performans ve Optimizasyon
+⚡ Responsive Optimizasyonlar
 - Küçük Ekran İyileştirmeleri :
   - Padding ve margin değerleri optimize edildi
   - Logo boyutları dinamik olarak ayarlandı
@@ -79,7 +99,16 @@ mobile/
 - Paket Uyumluluğu : Expo SDK 53 ile tüm bağımlılıklar güncellendi
 - Web Desteği : React DOM ve React Native Web entegrasyonu
 - Cross-Platform : iOS, Android ve Web uyumluluğu
-### 8. Test ve Dağıtım 🌐 Web Versiyonu
+### 8. Test ve Dağıtım
+📦 APK oluşturma (EAS Build)
+- Gerekli: `eas-cli`, Expo hesabı
+- `mobile/eas.json` içinde `apk` profili ve/veya `development` profili (android.buildType: "apk")
+- Komutlar:
+  - Development APK: `eas build --platform android --profile development`
+  - Direkt APK: `eas build -p android --profile apk`
+- Build tamamlanınca EAS linkinden `.apk` indirilir ve cihaza kurulur
+
+🌐 Web Versiyonu
 - Development Server : http://localhost:3000
 - Metro Bundler : JavaScript paketleme ve hot reload
 - Browser Testing : Chrome DevTools ile mobil simülasyon 📱 Mobil Test
@@ -100,13 +129,15 @@ mobile/
 - SVG entegrasyonu
 - Login ve Register ekranları
 - Navigasyon sistemi
+- Ana sayfa: filtreler, grid/list, favoriler, overlay eylemler
+- Randevu alma: tarih, saat slotu, çoklu hizmet seçimi, toplam ücret, başarı modalı
 - Responsive tasarım optimizasyonu
 - Cross-platform uyumluluk
 🔄 Gelecek Geliştirmeler :
 
-- Backend API entegrasyonu
-- Kullanıcı kimlik doğrulama
-- Randevu sistemi
+- Backend API entegrasyonu (gerçek veriler, doğrulama)
+- Kullanıcı kimlik doğrulama (JWT/OAuth)
+- Kuaför detay ekranı ve yorumlar
 - Push notification
 - App Store/Play Store dağıtımı
 ## 🎯 Öne Çıkan Özellikler

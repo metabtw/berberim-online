@@ -86,7 +86,7 @@ const RegisterScreen = ({ navigation }) => {
       // Register logic will be implemented when backend is ready
       console.log('Register attempt:', { firstName, lastName, email, password });
       Alert.alert('Başarılı', 'Hesabınız oluşturuldu!', [
-        { text: 'Tamam', onPress: () => navigation.navigate('Login') }
+        { text: 'Tamam', onPress: () => navigation.navigate('Home') }
       ]);
     }
   };
@@ -152,7 +152,7 @@ const RegisterScreen = ({ navigation }) => {
                         focusedInput === 'firstName' && styles.inputFocused,
                       ]}
                       placeholder="Adınız"
-                      placeholderTextColor={colors.gray}
+                      placeholderTextColor={colors.textPlaceholder}
                       value={firstName}
                       onChangeText={setFirstName}
                       onFocus={() => setFocusedInput('firstName')}
@@ -169,9 +169,9 @@ const RegisterScreen = ({ navigation }) => {
                         focusedInput === 'lastName' && styles.inputFocused,
                       ]}
                       placeholder="Soyadınız"
-                      placeholderTextColor={colors.gray}
-                      value={lastName}
-                      onChangeText={setLastName}
+                      placeholderTextColor={colors.textPlaceholder}
+                        value={lastName}
+                        onChangeText={setLastName}
                       onFocus={() => setFocusedInput('lastName')}
                       onBlur={() => setFocusedInput(null)}
                       autoCapitalize="words"
@@ -188,7 +188,7 @@ const RegisterScreen = ({ navigation }) => {
                       focusedInput === 'email' && styles.inputFocused,
                     ]}
                     placeholder="ornek@email.com"
-                    placeholderTextColor={colors.gray}
+                    placeholderTextColor={colors.textPlaceholder}
                     value={email}
                     onChangeText={setEmail}
                     onFocus={() => setFocusedInput('email')}
@@ -208,7 +208,7 @@ const RegisterScreen = ({ navigation }) => {
                       focusedInput === 'password' && styles.inputFocused,
                     ]}
                     placeholder="En az 6 karakter"
-                    placeholderTextColor={colors.gray}
+                    placeholderTextColor={colors.textPlaceholder}
                     value={password}
                     onChangeText={setPassword}
                     onFocus={() => setFocusedInput('password')}
@@ -227,7 +227,7 @@ const RegisterScreen = ({ navigation }) => {
                       password !== confirmPassword && confirmPassword.length > 0 && styles.inputError,
                     ]}
                     placeholder="Şifrenizi tekrar girin"
-                    placeholderTextColor={colors.gray}
+                    placeholderTextColor={colors.textPlaceholder}
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}
                     onFocus={() => setFocusedInput('confirmPassword')}
@@ -333,13 +333,13 @@ const styles = StyleSheet.create({
     ...typography.h2,
     textAlign: 'center',
     marginBottom: spacing.xs,
-    color: colors.black,
+    color: colors.textPrimary,
   },
   subtitleText: {
     ...typography.caption,
     textAlign: 'center',
     marginBottom: spacing.md,
-    color: colors.gray,
+    color: colors.textSecondary,
   },
   nameRow: {
     flexDirection: 'row',
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     ...typography.caption,
-    color: colors.darkGray,
+    color: colors.textPrimary,
     marginBottom: spacing.xs,
     fontWeight: '600',
   },
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 2,
     borderColor: 'transparent',
-    color: colors.black,
+    color: colors.textPrimary,
     minHeight: 48,
   },
   inputFocused: {
@@ -407,11 +407,11 @@ const styles = StyleSheet.create({
   },
   loginText: {
     ...typography.caption,
-    color: colors.gray,
+    color: colors.textSecondary,
   },
   loginLink: {
     ...typography.caption,
-    color: colors.primary,
+    color: colors.secondary,
     fontWeight: 'bold',
   },
 });

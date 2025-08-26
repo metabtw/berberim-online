@@ -5,26 +5,30 @@ const isSmallScreen = height < 700;
 const isVerySmallScreen = height < 600;
 
 export const colors = {
-  primary: '#667eea',
-  secondary: '#764ba2',
-  accent: '#f093fb',
-  accentDark: '#f5576c',
+  primary: '#38B6FF',
+  secondary: '#FF7B54',
+  accent: '#FFD93D',
   white: '#ffffff',
   black: '#000000',
-  gray: '#8e8e93',
-  lightGray: '#f2f2f7',
-  darkGray: '#48484a',
-  background: '#f8f9fa',
-  error: '#ff3b30',
-  success: '#34c759',
-  warning: '#ff9500',
+  gray: '#4B5563',
+  lightGray: '#F3F4F6',
+  darkGray: '#1F2937',
+  background: '#F9FAFB',
+  backgroundLight: '#F9FAFB',
+  backgroundDark: '#111827',
+  textPrimary: '#1F2937',
+  textSecondary: '#4B5563',
+  textPlaceholder: '#9CA3AF',
+  error: '#EF4444',
+  success: '#10B981',
+  warning: '#F59E0B',
 };
 
 export const gradients = {
-  primary: ['#667eea', '#764ba2'],
-  accent: ['#f093fb', '#f5576c'],
-  background: ['#667eea', '#764ba2'],
-  button: ['#667eea', '#764ba2'],
+  primary: ['#38B6FF', '#FF7B54'],
+  accent: ['#FFD93D', '#FF7B54'],
+  background: ['#38B6FF', '#FF7B54'],
+  button: ['#38B6FF', '#FF7B54'],
 };
 
 export const spacing = {
@@ -40,27 +44,27 @@ export const typography = {
   h1: {
     fontSize: isVerySmallScreen ? 24 : isSmallScreen ? 28 : 32,
     fontWeight: 'bold',
-    color: colors.black,
+    color: colors.textPrimary,
   },
   h2: {
     fontSize: isVerySmallScreen ? 18 : isSmallScreen ? 20 : 24,
     fontWeight: 'bold',
-    color: colors.black,
+    color: colors.textPrimary,
   },
   h3: {
     fontSize: isVerySmallScreen ? 16 : isSmallScreen ? 18 : 20,
     fontWeight: '600',
-    color: colors.black,
+    color: colors.textPrimary,
   },
   body: {
     fontSize: isVerySmallScreen ? 14 : 16,
     fontWeight: '400',
-    color: colors.black,
+    color: colors.textSecondary,
   },
   caption: {
     fontSize: isVerySmallScreen ? 12 : 14,
     fontWeight: '400',
-    color: colors.gray,
+    color: colors.textPlaceholder,
   },
   button: {
     fontSize: isVerySmallScreen ? 14 : 16,
