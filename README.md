@@ -184,6 +184,23 @@ mobile/
 <img width="246" height="514" alt="image" src="https://github.com/user-attachments/assets/a8c1a8f9-d906-4af7-956f-bf3fed4c21b0" />
 
 
+Yeni Ekranlar:
+
+<img width="275" height="521" alt="image" src="https://github.com/user-attachments/assets/9a4cf200-c3e0-4009-affd-c8308c2659e1" />
+<img width="275" height="525" alt="image" src="https://github.com/user-attachments/assets/db876be0-4501-415f-844b-5e662e292673" />
+<img width="274" height="526" alt="image" src="https://github.com/user-attachments/assets/0cfa65b4-f8fe-4591-8365-2b7d39d72603" />
+<img width="299" height="525" alt="image" src="https://github.com/user-attachments/assets/5b6f9c4a-cd3e-48af-ab23-eca54b6cd625" />
+<img width="310" height="520" alt="image" src="https://github.com/user-attachments/assets/00f7152d-2ba8-42d5-b519-9ae25504f9a7" />
+<img width="274" height="516" alt="image" src="https://github.com/user-attachments/assets/af91cef9-e2cc-4c1b-a095-9320db0ce6a3" />
+<img width="259" height="523" alt="image" src="https://github.com/user-attachments/assets/d4bb5778-604d-47f8-b61c-9baa498d063d" />
+
+
+
+
+
+
+
+
 
 
 
